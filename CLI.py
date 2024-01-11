@@ -1,5 +1,7 @@
-# Write a CLI for a simple program...
-# Will be the Frontend of our program... 
+# CLI codes ae found here...
+# Serves as the Frontend of our model... 
+
+# imports
 import click
 import tensorflow as tf
 import numpy as np
@@ -25,8 +27,6 @@ def hello(e, t):
     (5) With the example, Amazon is the text-entity (--e).\n
     (6) I had a bad customer experience is the text (--t)."""
     
-    # user-end model inference
-
     # load our model
     model = tf.keras.models.load_model("Sentiment-Model.tf")
     

@@ -1,0 +1,5 @@
+tensorflow
+numpy
+click
+pandas
+scikit-learn
