@@ -37,35 +37,31 @@ def hello(e, t):
     sentiment = model.predict([input])
 
     # get the index with the best probability
-    sentiment = np.argmax(sentiment)
+    senId = np.argmax(sentiment)
 
     # output conditions
-    if sentiment == 0:
+    if senId == 0:
         click.echo({
-            "entity": e,
-            "text": t,
-            "sentiment": "Negative"
+            "sentiment": "Negative",
+            "confidence": sentiment[0][senId]
         })
     
-    elif sentiment == 1:
+    elif senId == 1:
         click.echo({
-            "entity": e,
-            "text": t,
-            "sentiment": "Positive"
+            "sentiment": "Positive",
+            "confidence": sentiment[0][senId]
         })
     
-    elif sentiment == 2:
+    elif senId == 2:
         click.echo({
-            "entity": e,
-            "text": t,
-            "sentiment": "Neutral"
+            "sentiment": "Neutral",
+            "confidence": sentiment[0][senId]
         })
     
     else:
         click.echo({
-            "entity": e,
-            "text": t,
-            "sentiment": "Irrelevant"
+            "sentiment": "Irrelevant",
+            "confidence": sentiment[0][senId]
         })
     
     
