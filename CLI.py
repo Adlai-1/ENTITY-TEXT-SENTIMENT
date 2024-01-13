@@ -1,8 +1,11 @@
-# CLI codes ae found here...
+# CLI codes are found here...
 # Serves as the Frontend of our model... 
 
 # imports
 import click
+import os
+# just to get rid of unwanted warning and error logs...
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import tensorflow as tf
 import numpy as np
 
@@ -25,13 +28,11 @@ def hello(e, t):
     (3) Both parameters are needed for the model to perform its task.\n
     (4) Expected Input format: 'Amazon I had a bad customer experience.'\n
     (5) With the example, Amazon is the text-entity (--e).\n
-    (6) I had a bad customer experience is the text (--t)."""
-    
-    # load our model
-    model = tf.keras.models.load_model("Sentiment-Model.tf")
+    (6) I had a bad customer experience is the text (--t).
+    """
     
     # get user input
-    input = " ".join([e,t])
+    input = " ".join([e, t])
 
     # run model to execute
     sentiment = model.predict([input])
@@ -66,5 +67,11 @@ def hello(e, t):
     
     
 if __name__ == '__main__':
+    # loader indicator
+    with click.progressbar(range(10), fill_char="=", label='Loading Model...') as bar:
+        for _ in bar:
+            # Simulate loading process
+            model = tf.keras.models.load_model("Sentiment-Model.tf")
+    
     # click-cli function
     hello()
