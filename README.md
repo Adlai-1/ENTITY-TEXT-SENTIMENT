@@ -1,4 +1,4 @@
-#📊 Entity-Level Sentiment Analysis with LSTM
+#📊 Entity-Level Sentiment Analysis with LSTM#
 
 * Efficiently analyze sentiments in entity-level text using Long Short-Term Memory (LSTM) neural networks. 
 * This project employs advanced natural language processing techniques to predict sentiment behind entities mentioned in textual data.
